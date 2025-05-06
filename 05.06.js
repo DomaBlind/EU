@@ -34,7 +34,7 @@ const sorok = adatSzoveg.split("\n").map(s => {
   return { orszag, datum };
 });
 
-// 1. Tagok száma
+// 1.
 function megjelenitTagokSzama() {
   const eredmenyDiv = document.getElementById("eredmeny");
   const p = document.createElement("p");
@@ -42,7 +42,7 @@ function megjelenitTagokSzama() {
   eredmenyDiv.appendChild(p);
 }
 
-// 2. Csatlakozások adott évben
+// 2.
 function csatlakozasEvre(ev) {
   return sorok.filter(s => s.datum.startsWith(ev)).length;
 }
@@ -54,7 +54,7 @@ function megjelenitCsatlakozasEvre(ev) {
   document.getElementById("eredmeny").appendChild(p);
 }
 
-// 3. Csatlakozott-e adott ország?
+// 3.
 function csatlakozottE(orszagNev) {
   return sorok.some(s => s.orszag.toLowerCase() === orszagNev.toLowerCase());
 }
@@ -66,7 +66,7 @@ function megjelenitCsatlakozottE(orszag) {
   document.getElementById("eredmeny").appendChild(p);
 }
 
-// 4. Volt-e csatlakozás adott hónapban?
+// 4.
 function voltEHoban(honapSzam) {
   return sorok.some(s => {
     const honap = s.datum.split(".")[1];
@@ -81,7 +81,7 @@ function megjelenitVoltEHoban(honap) {
   document.getElementById("eredmeny").appendChild(p);
 }
 
-// 5. Utoljára csatlakozott ország
+// 5.
 function utolsoCsatlakozo() {
   const rendezett = [...sorok].sort((a, b) => new Date(b.datum) - new Date(a.datum));
   return rendezett[0].orszag;
@@ -94,7 +94,7 @@ function megjelenitUtolsoCsatlakozo() {
   document.getElementById("eredmeny").appendChild(p);
 }
 
-// 6. Év szerinti statisztika
+// 6.
 function evStatisztika() {
   const stat = {};
   sorok.forEach(s => {
